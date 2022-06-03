@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>RunMatchingMechanism_Action</name>
+        <label>RunMatchingMechanism Action</label>
+        <locationX>338</locationX>
+        <locationY>150</locationY>
+        <actionName>MatchboxUtils</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>CanRunMatchingMechanism_Decision</targetReference>
+        </connector>
+        <inputParameters>
+            <name>pResourceCollectionIdList</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <name>CanRunMatchingMechanism_Decision</name>
+        <label>CanRunMatchingMechanism Decision</label>
+        <locationX>487</locationX>
+        <locationY>152</locationY>
+        <defaultConnector>
+            <targetReference>CannotRunMatchingMechanism_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>OutcomeIs_CanRunMatchingMechanism</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>RunMatchingMechanism_Action</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CanRunMatchingMechanism_Screen</targetReference>
+            </connector>
+            <label>OutcomeIs CanRunMatchingMechanism</label>
+        </rules>
+    </decisions>
+    <interviewLabel>RunMatchingMechansim Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RunMatchingMechansim Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>CannotRunMatchingMechanism_Screen</name>
+        <label>CannotRunMatchingMechanism Screen</label>
+        <locationX>666</locationX>
+        <locationY>241</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>CannotRunMatchingMechanism_DisplayText</name>
+            <fieldText>&lt;p&gt;We Cannot Run Matching Mechanism&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>CanRunMatchingMechanism_Screen</name>
+        <label>CanRunMatchingMechanism Screen</label>
+        <locationX>664</locationX>
+        <locationY>50</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>MatchingMechanismRunning_DisplayText</name>
+            <fieldText>&lt;p&gt;Matching Mechanism is Running&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>RunMatching_Screen</name>
+        <label>RunMatching Screen</label>
+        <locationX>190</locationX>
+        <locationY>150</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>RunMatchingMechanism_Action</targetReference>
+        </connector>
+        <fields>
+            <name>RunMatching_DisplayText</name>
+            <fieldText>&lt;p&gt;Click Next To Run The Matching Mechanism.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>150</locationY>
+        <connector>
+            <targetReference>RunMatching_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ResourceCollectionId_TextCollectionVar</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="resourceList" type="@salesforce/schema/matchbox__Resource__c[]"  />
+            <property name="resourcePreferenceList" type="@salesforce/schema/matchbox__Resource_Preference__c[]"  />
+            <property name="resourcePreferenceInsertCollection" type="@salesforce/schema/matchbox__Resource_Preference__c[]" />
+            <property name="resourcePreferenceUpdateCollection" type="@salesforce/schema/matchbox__Resource_Preference__c[]" />
+            <property name="resourcePreferenceDeleteCollection" type="@salesforce/schema/matchbox__Resource_Preference__c[]" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

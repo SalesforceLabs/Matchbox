@@ -1,0 +1,17 @@
+{
+  "name": "matchbox",
+  "version": "1.0.0",
+  "description": "A multi-purpose matching utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "lwc-jest",
+    "test:unit:debug": "lwc-jest --debug",
+    "test:unit:watch": "lwc-jest --watch"
+  },
+  "author": "ericszulc",
+  "license": "ISC",
+  "devDependencies": {
+    "@salesforce/sfdx-lwc-jest": "^0.7.1"
+  }
+}

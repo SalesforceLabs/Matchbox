@@ -1,0 +1,54 @@
+<template>
+    <template if:true={currentPreferences}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6">
+                <div class="slds-card_boundary slds-m-bottom_x-small slds-var-p-around_small">
+                <lightning-card>
+                    <h2 slot="title">
+                        <strong>Not Preferred</strong>
+                    </h2>
+                
+                <template for:each={currentPreferences} for:item="rw">
+                    <template if:false={rw.IsPreferred}>
+                        <div class="slds-card_boundary slds-m-bottom_x-small"  key={rw.Id}>
+                            <lightning-card class="">
+                                <h3 slot="title">
+                                    <lightning-button-icon data-name={rw.Id} icon-name="utility:favorite" variant="border-filled" alternative-text="Mark As Preferred" class="slds-m-right_small" title="Mark As Preferred" onclick={preferResource}></lightning-button-icon>
+                                    {rw.Name}
+                                </h3>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+            </lightning-card>
+            </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6">
+                <div class="slds-card_boundary slds-m-bottom_x-small slds-var-p-around_small">
+                <lightning-card>
+                    <h2 slot="title">
+                        <strong>Preferred</strong>
+                    </h2>
+                
+                <template for:each={currentPreferences} for:item="rw">
+                    <template if:true={rw.IsPreferred}>
+                        <div class="slds-card_boundary slds-m-bottom_x-small"  key={rw.Id}>
+                            <lightning-card class="">
+                                <h3 slot="title">
+                                    <lightning-button-icon data-name={rw.Id} icon-name="utility:favorite" variant="brand" alternative-text="Mark As Unpreferred" class="slds-m-right_small" title="Mark As Unpreferred" onclick={unpreferResource}></lightning-button-icon>
+                                    {rw.Name}
+                                </h3>
+                                <div slot="actions">
+                                    <lightning-button-icon data-name={rw.Id} icon-name="utility:up" onclick={moveResourceUp}></lightning-button-icon>
+                                    <lightning-button-icon data-name={rw.Id} icon-name="utility:down" onclick={moveResourceDown}></lightning-button-icon>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+            </lightning-card>
+            </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+</template>
