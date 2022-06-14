@@ -1,4 +1,4 @@
-public class MatchboxDiversity{
+public with sharing class MatchboxDiversity{
 
     /**
      * Returns a set of records that is as diverse in regards to the field set input

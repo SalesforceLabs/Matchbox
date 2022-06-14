@@ -1,4 +1,4 @@
-global class MatchboxResourceMatchingBatch implements Database.Batchable<sObject>{
+global with sharing class MatchboxResourceMatchingBatch implements Database.Batchable<sObject>{
 
     global final String resourceCollectionId;
     global Boolean      hasError = false;

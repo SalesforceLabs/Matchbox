@@ -1,4 +1,4 @@
-global class MatchboxUtils {
+global with sharing class MatchboxUtils {
     
     /**
      * Runs the matching mechanism batch process
