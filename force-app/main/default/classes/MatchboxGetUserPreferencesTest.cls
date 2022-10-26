@@ -48,14 +48,14 @@ private class MatchboxGetUserPreferencesTest {
         userList.add( 
             new User(
                 Alias = 'standt',
-                Email='standarduser@testorg.com', 
+                Email='standarduser@example.com', 
                 EmailEncodingKey='UTF-8',
                 LastName='Testing',
                 LanguageLocaleKey='en_US', 
                 LocaleSidKey='en_US',
                 ProfileId = p.Id, 
                 TimeZoneSidKey='America/Los_Angeles',
-                UserName= (1)+'standarduser'+Math.random()+'@testorg.com'
+                UserName= (1)+'standarduser'+Math.random()+'@example.com'
             )
         );
 
